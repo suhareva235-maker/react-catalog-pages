@@ -29,7 +29,7 @@ export default function App() {
 
     loadProducts();
     return () => controller.abort();
-  }, [attempt]); 
+  }, [attempt]);
   if (status === 'loading') return <p>Загрузка…</p>;
 
   if (status === 'error') {
@@ -50,15 +50,15 @@ export default function App() {
       <p>Всего товаров: {products.length}</p>
       {products.length === 0 && <p>Каталог пуст.</p>}
       <ul id="products">
-        {products.slice(0,limit).map(product => (
+        {products.slice(0, limit).map(product => (
           <li key={product.id}>{product.name}: {product.qty} шт.</li>
         ))}
       </ul>
       {limit < products.length && (
-  <button type="button" onClick={() => setLimit(n => n + 25)}>
-    Показать ещё
-  </button>
-)}
+        <button type="button" onClick={() => setLimit(n => n + 25)}>
+          Показать ещё
+        </button>
+      )}
     </main>
   );
 }
